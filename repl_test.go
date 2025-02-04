@@ -5,21 +5,21 @@ import (
 )
 
 func TestCleanInput(t *testing.T) {
-	cases := []struct{
+	cases := []struct {
 		input    string
 		expected []string
 	}{
 		{
-			input: "  hello world   ",
+			input:    "  hello world   ",
 			expected: []string{"hello", "world"},
 		},
 		{
-			input: "  hello my world   ",
+			input:    "  hello my world   ",
 			expected: []string{"hello", "my", "world"},
-		},	
+		},
 	}
 
-	for _, testCase := range cases{
+	for _, testCase := range cases {
 		actualResult := CleanInput(testCase.input)
 		if len(actualResult) != len(testCase.expected) {
 			t.Errorf("incorrect array size")
@@ -32,7 +32,7 @@ func TestCleanInput(t *testing.T) {
 			returnedArrayItem := actualResult[i]
 
 			if expectedArrayItem != returnedArrayItem {
-				t.Errorf("different items, %v != %v",expectedArrayItem, returnedArrayItem)
+				t.Errorf("different items, %v != %v", expectedArrayItem, returnedArrayItem)
 			}
 		}
 	}
